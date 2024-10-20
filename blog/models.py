@@ -13,6 +13,7 @@ class Category(models.Model):
 
 class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    category = models.ManyToManyField(Category)
     title = models.CharField(max_length=100)
     slug = models.SlugField()
     published = models.BooleanField(default=False)
